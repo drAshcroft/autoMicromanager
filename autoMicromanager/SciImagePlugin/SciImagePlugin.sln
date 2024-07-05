@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciImagePlugin", "SciImagePlugin.csproj", "{FA156645-E764-4AE0-B97D-E10E6FD3134C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciImage", "..\SciImage\SciImage\SciImageWindow\SciImage.csproj", "{E5F741C5-E3BA-458E-9FC7-712210B2E4E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTest", "..\PluginTest\PluginTest.csproj", "{12F554C2-F4AF-463C-A1B7-1FA9EEF0D0AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA156645-E764-4AE0-B97D-E10E6FD3134C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA156645-E764-4AE0-B97D-E10E6FD3134C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA156645-E764-4AE0-B97D-E10E6FD3134C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA156645-E764-4AE0-B97D-E10E6FD3134C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F741C5-E3BA-458E-9FC7-712210B2E4E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F741C5-E3BA-458E-9FC7-712210B2E4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F741C5-E3BA-458E-9FC7-712210B2E4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F741C5-E3BA-458E-9FC7-712210B2E4E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12F554C2-F4AF-463C-A1B7-1FA9EEF0D0AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F554C2-F4AF-463C-A1B7-1FA9EEF0D0AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F554C2-F4AF-463C-A1B7-1FA9EEF0D0AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F554C2-F4AF-463C-A1B7-1FA9EEF0D0AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

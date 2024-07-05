@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- You don't need to worry about anything in this file unless you're
+     using registration-free COM.
+     There should be an appropriate <clrclass> section for every InteropUserControl
+     defined in the project -->
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" 
+  manifestVersion="1.0">
+<assemblyIdentity
+            type="win32"
+            name="MMToolKitComService"
+            version="1.0.0.0" />
+<clrClass
+            clsid="{63024889-97e6-4ed3-8642-d5bb985ce306}"
+            progid="MMToolKitComService.InteropUserControl"
+            threadingModel="Both"
+            name="MMToolKitComService.InteropUserControl" >
+</clrClass>
+</assembly>

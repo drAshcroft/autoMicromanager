@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7D88BD00-666D-49F0-8A14-9A07547A4EB0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyDevices</RootNamespace>
+    <AssemblyName>MMUI_MyDevices</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emgu.CV, Version=1.5.0.1, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\OldEmgu.CV.Binary-1.5.0.1\Emgu.CV.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.ML, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a288bfcf2d37d93b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\OldEmgu.CV.Binary-1.5.0.1\Emgu.CV.ML.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=987a5607bf4f198c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\OldEmgu.CV.Binary-1.5.0.1\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util, Version=1.1.3345.35405, Culture=neutral, PublicKeyToken=9ce8ff41c3b3d7f5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\OldEmgu.CV.Binary-1.5.0.1\Emgu.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\zedgraph_dll_v5.1.5\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DigitalIOLineController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DigitalIOLineController.Designer.cs">
+      <DependentUpon>DigitalIOLineController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoubleZStageProperties.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DoubleZStageProperties.Designer.cs">
+      <DependentUpon>DoubleZStageProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GalvoController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GalvoController.Designer.cs">
+      <DependentUpon>GalvoController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LaserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LaserControl.Designer.cs">
+      <DependentUpon>LaserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScanningConfocal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ScanningConfocal.Designer.cs">
+      <DependentUpon>ScanningConfocal.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DigitalIOLineController.resx">
+      <DependentUpon>DigitalIOLineController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoubleZStageProperties.resx">
+      <DependentUpon>DoubleZStageProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GalvoController.resx">
+      <DependentUpon>GalvoController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaserControl.resx">
+      <DependentUpon>LaserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScanningConfocal.resx">
+      <DependentUpon>ScanningConfocal.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MM_Net\Micromanager_net.csproj">
+      <Project>{7BECAA3B-93D9-40B1-A457-AB1826291149}</Project>
+      <Name>Micromanager_net</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)MM_Net\bin\$(ConfigurationName)\"</PostBuildEvent>
+    <PreBuildEvent>copy "$(SolutionDir)3rdParty\OldEmgu.CV.Binary-1.5.0.1\" "$(TargetDir)"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

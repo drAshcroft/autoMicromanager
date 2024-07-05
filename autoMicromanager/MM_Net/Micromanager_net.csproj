@@ -1,0 +1,579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BECAA3B-93D9-40B1-A457-AB1826291149}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Micromanager_net</RootNamespace>
+    <AssemblyName>Micromanager_net</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MicroManager.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;COM_INTEROP_ENABLED</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;COM_INTEROP_ENABLED</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FreeImageNET, Version=3.11.0.0, Culture=neutral, PublicKeyToken=04701cdf1eb66912, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FreeImage\Wrapper\FreeImage.NET\cs\Library\bin\Debug\FreeImageNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.InteropFormTools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files\Microsoft Visual Basic 2005 Power Packs\Interop Forms Toolkit 2.0\SDK\Libraries\Microsoft.InteropFormTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="SciImage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.2.3782.25042, Culture=neutral, PublicKeyToken=a262e3f77be44473, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Docking Src\WinFormsUI\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveX\ActiveXControlHelpers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActiveX\COMDeviceHolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActiveX\COMDeviceHolders.Designer.cs">
+      <DependentUpon>COMDeviceHolders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveX\MMCOMpictureBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActiveX\MMCOMpictureBoard.Designer.cs">
+      <DependentUpon>MMCOMpictureBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveX\MMToolKitComService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActiveX\MMToolKitComService.Designer.cs">
+      <DependentUpon>MMToolKitComService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveX\COMViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActiveX\COMViewer.Designer.cs">
+      <DependentUpon>COMViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AquisitionEngine.cs" />
+    <Compile Include="ChannelGroup.cs" />
+    <Compile Include="ChannelState.cs" />
+    <Compile Include="Channels\ChannelGroupDefinition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Channels\ChannelGroupDefinition.Designer.cs">
+      <DependentUpon>ChannelGroupDefinition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\ChannelSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Channels\ChannelSetup.Designer.cs">
+      <DependentUpon>ChannelSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\ChannelSetupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Channels\ChannelSetupControl.Designer.cs">
+      <DependentUpon>ChannelSetupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\GroupScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Channels\GroupScript.Designer.cs">
+      <DependentUpon>GroupScript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\StateCommand.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Channels\StateCommand.Designer.cs">
+      <DependentUpon>StateCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoreWrap\ActionType.cs" />
+    <Compile Include="CoreWrap\CharVector.cs" />
+    <Compile Include="CoreWrap\cImage.cs" />
+    <Compile Include="CoreWrap\CMMCore.cs" />
+    <Compile Include="CoreWrap\CMMError.cs" />
+    <Compile Include="CoreWrap\Configuration.cs" />
+    <Compile Include="CoreWrap\DeviceNotification.cs" />
+    <Compile Include="CoreWrap\DeviceType.cs" />
+    <Compile Include="CoreWrap\IntVector.cs" />
+    <Compile Include="CoreWrap\LongVector.cs" />
+    <Compile Include="CoreWrap\Metadata.cs" />
+    <Compile Include="CoreWrap\MetadataArrayTag.cs" />
+    <Compile Include="CoreWrap\MetadataError.cs" />
+    <Compile Include="CoreWrap\MetadataIndexError.cs" />
+    <Compile Include="CoreWrap\MetadataKeyError.cs" />
+    <Compile Include="CoreWrap\MetadataSingleTag.cs" />
+    <Compile Include="CoreWrap\MetadataTag.cs" />
+    <Compile Include="CoreWrap\MMCoreCS.cs" />
+    <Compile Include="CoreWrap\MMCoreCSPINVOKE.cs" />
+    <Compile Include="CoreWrap\MMEventCallback.cs" />
+    <Compile Include="CoreWrap\pair_ss.cs" />
+    <Compile Include="CoreWrap\PortType.cs" />
+    <Compile Include="CoreWrap\PropertyBlock.cs" />
+    <Compile Include="CoreWrap\PropertyPair.cs" />
+    <Compile Include="CoreWrap\PropertySetting.cs" />
+    <Compile Include="CoreWrap\PropertyType.cs" />
+    <Compile Include="CoreWrap\StrMap.cs" />
+    <Compile Include="CoreWrap\StrVector.cs" />
+    <Compile Include="CoreWrap\SWIGTYPE_p_double.cs" />
+    <Compile Include="CoreWrap\SWIGTYPE_p_unsigned_char.cs" />
+    <Compile Include="Devices\GenericDevice.cs" />
+    <Compile Include="NI_Controls2\PictureBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NI_Controls2\PictureBoard.Designer.cs">
+      <DependentUpon>PictureBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentForm.Designer.cs">
+      <DependentUpon>DockContentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generals\StatisticFunction.cs" />
+    <Compile Include="NI_Controls2\AllDeviceHolders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NI_Controls2\AllDeviceHolders.designer.cs">
+      <DependentUpon>AllDeviceHolders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NI_Controls2\NIImageProcessor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NI_Controls2\NIImageProcessor.Designer.cs">
+      <DependentUpon>NIImageProcessor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NI_Controls2\NILUTGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NI_Controls2\NIPropList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NI_Controls2\NI_Helper.cs" />
+    <Compile Include="CoreImage.cs" />
+    <Compile Include="DeviceControls\ColorAreaAndSliderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorAreaAndSliderUserControl.Designer.cs">
+      <DependentUpon>ColorAreaAndSliderUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorAreaUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorAreaUserControl.Designer.cs">
+      <DependentUpon>ColorAreaUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorPicker.Designer.cs">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSlider.designer.cs">
+      <DependentUpon>ColorSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSliderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSliderPanel.Designer.cs">
+      <DependentUpon>ColorSliderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSliderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSliderUserControl.Designer.cs">
+      <DependentUpon>ColorSliderUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\Colors\ColorConverting.cs" />
+    <Compile Include="DeviceControls\Colors\HsbColor.cs" />
+    <Compile Include="DeviceControls\Colors\HslColor.cs" />
+    <Compile Include="DeviceControls\Colors\RgbColor.cs" />
+    <Compile Include="DeviceControls\DoubleSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\DoubleSlider.designer.cs">
+      <DependentUpon>DoubleSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\FocusSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\FocusSlider.Designer.cs">
+      <DependentUpon>FocusSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\GlassButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\LUTGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\LUTGraph.Designer.cs">
+      <DependentUpon>LUTGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\PropertyList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\PropertyList.Designer.cs">
+      <DependentUpon>PropertyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\SlideAndTextl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\SlideAndTextl.Designer.cs">
+      <DependentUpon>SlideAndTextl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Camera.cs" />
+    <Compile Include="Devices\FilterWheel.cs" />
+    <Compile Include="Devices\FunctionGenerator.cs" />
+    <Compile Include="Devices\MMDeviceBase.cs" />
+    <Compile Include="Devices\MMEmptyGuiDevice.cs" />
+    <Compile Include="Devices\NormalCamera.cs" />
+    <Compile Include="Devices\ScanningConfocalCamera.cs" />
+    <Compile Include="Devices\StateDevice.cs" />
+    <Compile Include="Devices\XYStage.cs" />
+    <Compile Include="Devices\ZStage.cs" />
+    <Compile Include="EasyCore.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generals\ColorConversions.cs" />
+    <Compile Include="Generals\PseudoRandom.cs" />
+    <Compile Include="Interfaces\GUIDeviceControl.cs" />
+    <Compile Include="Interfaces\IComCMMCore.cs" />
+    <Compile Include="Interfaces\IPictureView.cs" />
+    <Compile Include="Interfaces\IPropertyList.cs" />
+    <Compile Include="Interfaces\ISubMDI.cs" />
+    <Compile Include="NI_Controls2\NIEasyCore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NI_Controls2\NIEasyCore.Designer.cs">
+      <DependentUpon>NIEasyCore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NI_Controls2\SingleDeviceHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NI_Controls2\SingleDeviceHolder.designer.cs">
+      <DependentUpon>SingleDeviceHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyInfo.cs" />
+    <Compile Include="PythonHelpers\PythonViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PythonHelpers\PythonViewer.Designer.cs">
+      <DependentUpon>PythonViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\DeviceDesc.cs" />
+    <Compile Include="Setup\GetGUIRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\GetGUIRow.Designer.cs">
+      <DependentUpon>GetGUIRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\HardwareSetup4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\HardwareSetup4.Designer.cs">
+      <DependentUpon>HardwareSetup4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\GetNameRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\GetNameRow.Designer.cs">
+      <DependentUpon>GetNameRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\HardwareSetup3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\HardwareSetup3.Designer.cs">
+      <DependentUpon>HardwareSetup3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\HardwareSetup2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\HardwareSetup2.Designer.cs">
+      <DependentUpon>HardwareSetup2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\DeviceDesciption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setup\DeviceDesciption.Designer.cs">
+      <DependentUpon>DeviceDesciption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\HardwareSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\HardwareSetup.Designer.cs">
+      <DependentUpon>HardwareSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\SaveProfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\SaveProfiles.Designer.cs">
+      <DependentUpon>SaveProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\SetProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\SetProperties.Designer.cs">
+      <DependentUpon>SetProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StopWatch.cs" />
+    <Compile Include="UI\GUIDeviceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUIDeviceForm.Designer.cs">
+      <DependentUpon>GUIDeviceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ActiveX\COMDeviceHolders.resx">
+      <DependentUpon>COMDeviceHolders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActiveX\MMCOMpictureBoard.resx">
+      <DependentUpon>MMCOMpictureBoard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActiveX\MMToolKitComService.resx">
+      <DependentUpon>MMToolKitComService.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActiveX\COMViewer.resx">
+      <DependentUpon>COMViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Channels\ChannelGroupDefinition.resx">
+      <DependentUpon>ChannelGroupDefinition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Channels\ChannelSetup.resx">
+      <DependentUpon>ChannelSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Channels\ChannelSetupControl.resx">
+      <DependentUpon>ChannelSetupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Channels\GroupScript.resx">
+      <DependentUpon>GroupScript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Channels\StateCommand.resx">
+      <DependentUpon>StateCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorAreaAndSliderUserControl.resx">
+      <DependentUpon>ColorAreaAndSliderUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorAreaUserControl.resx">
+      <DependentUpon>ColorAreaUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorPicker.resx">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorSlider.resx">
+      <DependentUpon>ColorSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorSliderPanel.resx">
+      <DependentUpon>ColorSliderPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorSliderUserControl.resx">
+      <DependentUpon>ColorSliderUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\DoubleSlider.resx">
+      <DependentUpon>DoubleSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\FocusSlider.resx">
+      <DependentUpon>FocusSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\LUTGraph.resx">
+      <DependentUpon>LUTGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NI_Controls2\PictureBoard.resx">
+      <DependentUpon>PictureBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\PropertyList.resx">
+      <DependentUpon>PropertyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\SlideAndTextl.resx">
+      <DependentUpon>SlideAndTextl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentForm.resx">
+      <DependentUpon>DockContentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NI_Controls2\AllDeviceHolders.resx">
+      <DependentUpon>AllDeviceHolders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NI_Controls2\NIEasyCore.resx">
+      <DependentUpon>NIEasyCore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NI_Controls2\NIImageProcessor.resx">
+      <DependentUpon>NIImageProcessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PythonHelpers\PythonViewer.resx">
+      <DependentUpon>PythonViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\GetGUIRow.resx">
+      <DependentUpon>GetGUIRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\HardwareSetup4.resx">
+      <DependentUpon>HardwareSetup4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\GetNameRow.resx">
+      <DependentUpon>GetNameRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\HardwareSetup3.resx">
+      <DependentUpon>HardwareSetup3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\HardwareSetup2.resx">
+      <DependentUpon>HardwareSetup2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\DeviceDesciption.resx">
+      <DependentUpon>DeviceDesciption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\HardwareSetup.resx">
+      <DependentUpon>HardwareSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\SaveProfiles.resx">
+      <DependentUpon>SaveProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\SetProperties.resx">
+      <DependentUpon>SetProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUIDeviceForm.resx">
+      <DependentUpon>GUIDeviceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ActiveX\InteropUserControl.manifest" />
+    <None Include="ActiveX\InteropUserControl.res" />
+    <None Include="app.config" />
+    <None Include="ConfigFiles\DemoScript_Desktop.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MicroManager.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ActiveX\Dilbert.bmp" />
+    <Content Include="ActiveX\InteropUserControl.bmp" />
+    <Content Include="ActiveX\InteropUserControl.rc" />
+    <Content Include="Build commands.txt" />
+    <Content Include="ConfigFiles\DemoScript.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFiles\DemoScript_full.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFiles\PlaceHolder.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LibIcon.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserData\Placeholder.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JoystickInterface\JoystickInterface.csproj">
+      <Project>{0D77953E-FD60-4824-A997-AF72E66EF8C1}</Project>
+      <Name>JoystickInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)" "C:\Program Files\autoMicromanager\"
+</PostBuildEvent>
+    <PreBuildEvent>copy "$(SolutionDir)3rdParty\CPPMicromanagerBin\" "$(TargetDir)"
+
+@echo.
+IF EXIST "$(DevEnvDir)..\..\SDK\v3.5\Bin\rc.exe" ("$(DevEnvDir)..\..\SDK\v3.5\Bin\rc.exe" /r "$(ProjectDir)InteropUserControl.rc") ELSE (IF EXIST "$(DevEnvDir)..\..\SDK\v2.0\Bin\rc.exe" ("$(DevEnvDir)..\..\SDK\v2.0\Bin\rc.exe"/r "$(ProjectDir)InteropUserControl.rc") ELSE (IF EXIST "$(DevEnvDir)..\Tools\Bin\rc.exe" ("$(DevEnvDir)..\Tools\Bin\rc.exe"/r "$(ProjectDir)InteropUserControl.rc") ELSE (IF EXIST "$(DevEnvDir)..\..\VC\Bin\rc.exe" ("$(DevEnvDir)..\..\VC\Bin\rc.exe"/r "$(ProjectDir)InteropUserControl.rc") ELSE (@Echo Unable to find rc.exe, using default manifest instead))))
+@echo.</PreBuildEvent>
+  </PropertyGroup>
+</Project>

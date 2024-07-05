@@ -1,0 +1,1264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E5F741C5-E3BA-458E-9FC7-712210B2E4E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SciImage</RootNamespace>
+    <AssemblyName>SciImage</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FreeImageNET, Version=3.11.0.0, Culture=neutral, PublicKeyToken=04701cdf1eb66912, processorArchitecture=MSIL" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\src\SharpZipLib\bin\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Ink, Version=1.7.2600.2180, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\src\Microsoft.Ink\Microsoft.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MM_Net\bin\Debug\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\ActionFactory.cs" />
+    <Compile Include="Actions\File Actions\AcquireFromScannerOrCameraAction.cs" />
+    <Compile Include="Actions\Image Actions\CanvasSize\CanvasSizeAction.cs" />
+    <Compile Include="Actions\File Actions\SaveAsFileAction.cs" />
+    <Compile Include="Actions\File Actions\SaveFileAction.cs" />
+    <Compile Include="Actions\History Actions\ClearHistoryAction.cs" />
+    <Compile Include="Actions\File Actions\ClearMruListAction.cs" />
+    <Compile Include="Actions\File Actions\CloseAllWorkspacesAction.cs" />
+    <Compile Include="Actions\File Actions\CloseWorkspaceAction.cs" />
+    <Compile Include="Actions\Edit Actions\CopyToClipboardAction.cs" />
+    <Compile Include="Actions\Edit Actions\CutAction.cs" />
+    <Compile Include="Actions\Image Actions\FlipImageHorizontalAction.cs" />
+    <Compile Include="Actions\Image Actions\FlipImageVerticalAction.cs" />
+    <Compile Include="Actions\Image Actions\RotateDocument180Action.cs" />
+    <Compile Include="Actions\Image Actions\RotateDocument90CCWAction.cs" />
+    <Compile Include="Actions\Image Actions\RotateDocument90CWAction.cs" />
+    <Compile Include="Actions\Image Actions\RotateDocumentHelper.cs" />
+    <Compile Include="Actions\Layer Actions\FlipLayerHorizontalAction.cs" />
+    <Compile Include="Actions\Layer Actions\FlipLayerVerticalAction.cs" />
+    <Compile Include="Actions\History Actions\HistoryFastForwardAction.cs" />
+    <Compile Include="Actions\History Actions\HistoryRedoAction.cs" />
+    <Compile Include="Actions\History Actions\HistoryRewindAction.cs" />
+    <Compile Include="Actions\History Actions\HistoryUndoAction.cs" />
+    <Compile Include="Actions\Layer Actions\ImportFromFileAction.cs" />
+    <Compile Include="Actions\Layer Actions\MoveActiveLayerDownAction.cs" />
+    <Compile Include="Actions\Layer Actions\MoveActiveLayerUpAction.cs" />
+    <Compile Include="Actions\File Actions\NewImageAction.cs" />
+    <Compile Include="Actions\Layer Actions\OpenActiveLayerPropertiesAction.cs" />
+    <Compile Include="Actions\File Actions\OpenFileAction.cs" />
+    <Compile Include="Actions\Edit Actions\PasteAction.cs" />
+    <Compile Include="Actions\Edit Actions\PasteInToNewImageAction.cs" />
+    <Compile Include="Actions\Edit Actions\PasteInToNewLayerAction.cs" />
+    <Compile Include="Actions\File Actions\PrintAction.cs" />
+    <Compile Include="Actions\Image Actions\ResizeAction.cs" />
+    <Compile Include="Actions\File Actions\SendFeedbackAction.cs" />
+    <Compile Include="Actions\PluginAction.cs" />
+    <Compile Include="Actions\View Actions\ActualSizeAction.cs" />
+    <Compile Include="Actions\View Actions\ZoomInAction.cs" />
+    <Compile Include="Actions\View Actions\ZoomOutAction.cs" />
+    <Compile Include="Actions\View Actions\ZoomToSelectionAction.cs" />
+    <Compile Include="Actions\View Actions\ZoomToWindowAction.cs" />
+    <Compile Include="AppEnvironment.cs" />
+    <Compile Include="AppWorkspace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\ColorsAndPixelOps\ColorIntensity.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\ColorPixelBase.cs" />
+    <Compile Include="Core\Surfaces\SurfaceFactory.cs" />
+    <Compile Include="FileTypes\InternalTypes\BmpFileType.cs" />
+    <Compile Include="FileTypes\InternalTypes\TiffFileType.cs" />
+    <Compile Include="FileTypes\InternalTypes\JpgFileType.cs" />
+    <Compile Include="IControlHoldingForm.cs" />
+    <Compile Include="ImageWithContrast.cs" />
+    <Compile Include="Layers\BitmapLayer\BitmapLayerPropertiesDialog2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\BitmapLayer\BitmapLayerPropertiesDialog2.Designer.cs">
+      <DependentUpon>BitmapLayerPropertiesDialog2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\IntensityLayer\IntesityLayer.cs" />
+    <Compile Include="Layers\IntensityLayer\IntensityLayerPropertiesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\IntensityLayer\IntensityLayerPropertiesDialog.Designer.cs">
+      <DependentUpon>IntensityLayerPropertiesDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewMenu\PdnMainMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewMenu\PdnMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PaintForms\MDIChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaintForms\MDIChildForm.Designer.cs">
+      <DependentUpon>MDIChildForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemLayer\Base\BoxedConstants.cs" />
+    <Compile Include="SystemLayer\Base\CallbackOnDispose.cs" />
+    <Compile Include="SystemLayer\Base\DeferredFormatter.cs" />
+    <Compile Include="SystemLayer\Base\Do.cs" />
+    <Compile Include="SystemLayer\Base\EventArgs`1.cs" />
+    <Compile Include="SystemLayer\Base\Function.cs" />
+    <Compile Include="SystemLayer\Base\ICancelable.cs" />
+    <Compile Include="SystemLayer\Base\ICloneable`1.cs" />
+    <Compile Include="SystemLayer\Base\IDeferredSerializable.cs" />
+    <Compile Include="SystemLayer\Base\IDisposedEvent.cs" />
+    <Compile Include="PDNResources\ImageResource.cs" />
+    <Compile Include="SystemLayer\Base\IOEventArgs.cs" />
+    <Compile Include="SystemLayer\Base\IOEventHandler.cs" />
+    <Compile Include="SystemLayer\Base\IOOperationType.cs" />
+    <Compile Include="SystemLayer\Base\IProgressEvents.cs" />
+    <Compile Include="SystemLayer\Base\ISimpleCollection.cs" />
+    <Compile Include="SystemLayer\Base\OperationResult.cs" />
+    <Compile Include="SystemLayer\Base\Pair.cs" />
+    <Compile Include="SystemLayer\Base\Pair`2.cs" />
+    <Compile Include="SystemLayer\Base\Procedure.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\BooleanProperty.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\DoubleProperty.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\DoubleVectorProperty.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\ImageProperty.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\Int32Property.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\IPropertyRef.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\LinkValuesBasedOnBooleanRule`2.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\Property.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\PropertyCollection.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\PropertyCollectionRule.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\Property`1.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\ReadOnlyBoundToBooleanRule.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\ReadOnlyBoundToValueRule`2.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\ScalarProperty`1.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\SoftMutuallyBoundMinMaxRule`2.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\StaticListChoiceProperty.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\StringProperty.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\ValueValidationFailureResult.cs" />
+    <Compile Include="SystemLayer\Base\PropertySystem\VectorProperty`1.cs" />
+    <Compile Include="SystemLayer\Base\Quadruple.cs" />
+    <Compile Include="SystemLayer\Base\Quadruple`4.cs" />
+    <Compile Include="SystemLayer\Base\ReadOnlyException.cs" />
+    <Compile Include="PDNResources\Resource`1.cs" />
+    <Compile Include="SystemLayer\Base\Set.cs" />
+    <Compile Include="SystemLayer\Base\Set`1.cs" />
+    <Compile Include="SystemLayer\Base\SiphonStream.cs" />
+    <Compile Include="SystemLayer\Base\Triple.cs" />
+    <Compile Include="SystemLayer\Base\Triple`3.cs" />
+    <Compile Include="SystemLayer\Base\Vector`1.cs" />
+    <Compile Include="SystemLayer\Base\WeakReference`1.cs" />
+    <Compile Include="SystemLayer\Base\Win32Window.cs" />
+    <Compile Include="SystemLayer\Base\WorkItemFailureAction.cs" />
+    <Compile Include="SystemLayer\Base\WorkItemResult.cs" />
+    <Compile Include="PaintForms\ColorPickers\BrowserSafeColorEditorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\BrowserSafeColorEditorUserControl.Designer.cs">
+      <DependentUpon>BrowserSafeColorEditorUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorAreaAndSliderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorAreaAndSliderUserControl.Designer.cs">
+      <DependentUpon>ColorAreaAndSliderUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorAreaUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorAreaUserControl.Designer.cs">
+      <DependentUpon>ColorAreaUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorSliderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorSliderPanel.Designer.cs">
+      <DependentUpon>ColorSliderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorSliderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorSliderUserControl.Designer.cs">
+      <DependentUpon>ColorSliderUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\Colors\ColorConverting.cs" />
+    <Compile Include="PaintForms\ColorPickers\Colors\HsbColor.cs" />
+    <Compile Include="PaintForms\ColorPickers\Colors\HslColor.cs" />
+    <Compile Include="PaintForms\ColorPickers\Colors\RgbColor.cs" />
+    <Compile Include="PaintForms\ColorPickers\WebColorEditorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\WebColorEditorUserControl.Designer.cs">
+      <DependentUpon>WebColorEditorUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Misc\BitVector2D.cs" />
+    <Compile Include="Core\Misc\BitVector2DSurfaceAdapter.cs" />
+    <Compile Include="Core\Exceptions\BlockedPluginException.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\ColorBgra.cs" />
+    <Compile Include="PDNResources\EnumLocalizer.cs" />
+    <Compile Include="Core\UserControls\EtchedLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\FloatingToolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\ISnapManagerHost.cs" />
+    <Compile Include="Core\Forms\ISnapObstacleHost.cs" />
+    <Compile Include="Core\Forms\PdnBaseDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\PdnBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Forms\SnapDescription.cs" />
+    <Compile Include="Core\Forms\SnapManager.cs" />
+    <Compile Include="Core\Forms\SnapObstacle.cs" />
+    <Compile Include="Core\Forms\SnapObstacleController.cs" />
+    <Compile Include="Core\Forms\SnapRegion.cs" />
+    <Compile Include="Core\Misc\GradientRenderer.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\GradientRenderers.cs" />
+    <Compile Include="Core\Forms\HandledEventArgs`1.cs" />
+    <Compile Include="Core\Forms\HandledEventHandler`1.cs" />
+    <Compile Include="Core\Forms\HorizontalSnapEdge.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\HsvColor.cs" />
+    <Compile Include="Core\Misc\IBitVector2D.cs" />
+    <Compile Include="Core\IndirectUI\IFirstSelection.cs" />
+    <Compile Include="Core\Forms\IFormAssociate.cs" />
+    <Compile Include="Core\Forms\IHotKeyTarget.cs" />
+    <Compile Include="Core\Misc\IndexEventArgs.cs" />
+    <Compile Include="Core\Misc\IndexEventHandler.cs" />
+    <Compile Include="Core\IndirectUI\AngleChooserPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\BooleanCheckBoxPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\ControlInfo.cs" />
+    <Compile Include="Core\IndirectUI\ControlInfoPropertyNames.cs" />
+    <Compile Include="Core\IndirectUI\DoubleSliderPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\DoubleVectorPanAndSliderPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\DoubleVectorSliderPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\Int32ColorWheelPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\Int32IncrementButtonPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\Int32SliderPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\PanelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\PanelControlInfo.cs" />
+    <Compile Include="Core\IndirectUI\PropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\PropertyControlInfo.cs" />
+    <Compile Include="Core\IndirectUI\PropertyControlInfoAttribute.cs" />
+    <Compile Include="Core\IndirectUI\PropertyControlPropertyAttribute.cs" />
+    <Compile Include="Core\IndirectUI\PropertyControlType.cs" />
+    <Compile Include="Core\IndirectUI\PropertyControlUtil.cs" />
+    <Compile Include="Core\IndirectUI\PropertyControl`1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\SliderPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\StaticListDropDownPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\StaticListRadioButtonPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\StringTextBoxPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\IndirectUI\VectorSliderPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\Misc\IPaintBackground.cs" />
+    <Compile Include="Core\Misc\IPluginSupportInfo.cs" />
+    <Compile Include="Core\Misc\IThumbnailProvider.cs" />
+    <Compile Include="Core\UserControls\IUnitsComboBox.cs" />
+    <Compile Include="Core\IndirectUI\LayoutUtility.cs" />
+    <Compile Include="Core\Misc\pdnList.cs" />
+    <Compile Include="Core\Misc\MeasurementUnit.cs" />
+    <Compile Include="Core\Surfaces\MemoryBlock.cs" />
+    <Compile Include="Core\Forms\MovingEventArgs.cs" />
+    <Compile Include="Core\Forms\MovingEventHandler.cs" />
+    <Compile Include="Core\Surfaces\PaintEventArgs2.cs" />
+    <Compile Include="Core\Surfaces\PaintEventHandler2.cs" />
+    <Compile Include="Core\Exceptions\PdnException.cs" />
+    <Compile Include="Core\Misc\PdnGraphicsPath.cs" />
+    <Compile Include="Core\Misc\PdnRegion.cs" />
+    <Compile Include="Core\Misc\PersistedObjectLocker.cs" />
+    <Compile Include="Core\Misc\PersistedObject`1.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\BinaryPixelOp.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\BinaryPixelOps.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\IPixelOp.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\PixelOp.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\UnaryPixelOp.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\UnaryPixelOps.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\PluginSupportInfo.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\PluginSupportInfoAttribute.cs" />
+    <Compile Include="Core\Misc\ProgressEventArgs.cs" />
+    <Compile Include="Core\Misc\ProgressEventHandler.cs" />
+    <Compile Include="Core\Misc\PropertyEventArgs.cs" />
+    <Compile Include="Core\Misc\PropertyEventHandler.cs" />
+    <Compile Include="Core\Surfaces\RenderArgs.cs" />
+    <Compile Include="Core\Surfaces\RenderedTileEventArgs.cs" />
+    <Compile Include="Core\Surfaces\RenderedTileEventHandler.cs" />
+    <Compile Include="Core\Misc\ResamplingAlgorithm.cs" />
+    <Compile Include="Core\ColorsAndPixelOps\RgbColor.cs" />
+    <Compile Include="Core\Misc\ScaleFactor.cs" />
+    <Compile Include="Core\Misc\Scanline.cs" />
+    <Compile Include="Core\Misc\Selection.cs" />
+    <Compile Include="Core\UserControls\CurveControl\SplineInterpolator.cs" />
+    <Compile Include="Core\StateMachine\State.cs" />
+    <Compile Include="Core\StateMachine\StateMachine.cs" />
+    <Compile Include="Core\StateMachine\StateMachineExecutor.cs" />
+    <Compile Include="Core\Misc\StylusEventArgs.cs" />
+    <Compile Include="Core\Surfaces\IrregularSurface.cs" />
+    <Compile Include="Core\Surfaces\ISurfaceDraw.cs" />
+    <Compile Include="Core\Surfaces\MaskedSurface.cs" />
+    <Compile Include="Core\Surfaces\PlacedSurface.cs" />
+    <Compile Include="Core\Surfaces\Surface.cs" />
+    <Compile Include="Core\Surfaces\SurfaceBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\Surfaces\SurfaceBoxBaseRenderer.cs" />
+    <Compile Include="Core\Surfaces\SurfaceBoxGraphicsRenderer.cs" />
+    <Compile Include="Core\Surfaces\SurfaceBoxGridRenderer.cs" />
+    <Compile Include="Core\Surfaces\SurfaceBoxRenderer.cs" />
+    <Compile Include="Core\Surfaces\SurfaceBoxRendererList.cs" />
+    <Compile Include="Core\Surfaces\SurfaceForClipboard.cs" />
+    <Compile Include="Core\Misc\TaskButton.cs" />
+    <Compile Include="Core\Misc\TaskDialog.cs" />
+    <Compile Include="Core\Threading\ThreadPool.cs" />
+    <Compile Include="Core\Threading\WaitableCounter.cs" />
+    <Compile Include="Core\Misc\ThumbnailManager.cs" />
+    <Compile Include="Core\UserControls\UnitsComboBoxHandler.cs" />
+    <Compile Include="Core\UserControls\UnitsDisplayType.cs" />
+    <Compile Include="Core\UserControls\UserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\AngleChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\ArrowButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\ButtonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\ColorGradientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\CommandButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\ControlShadow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\CurveControl\CurveControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\CurveControl\CurveControlLuminosity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\CurveControl\CurveControlRgb.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\HeaderLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\Histogram.cs" />
+    <Compile Include="Core\UserControls\HistogramControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\HistogramLuminosity.cs" />
+    <Compile Include="Core\UserControls\HistogramRGB.cs" />
+    <Compile Include="Core\UserControls\ImageListMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\ImageStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\PanControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\PanelEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\PdnBanner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\PdnNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\Ruler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\SwatchControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\UnitsComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\UserControls\UnitsComboBoxStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\Utility.cs" />
+    <Compile Include="Core\Forms\VerticalSnapEdge.cs" />
+    <Compile Include="Core\Misc\WaitCursorChanger.cs" />
+    <Compile Include="Core\Exceptions\WorkerThreadException.cs" />
+    <Compile Include="Data\Document.cs" />
+    <Compile Include="Data\DocumentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Exif.cs" />
+    <Compile Include="Data\ExifTagID.cs" />
+    <Compile Include="Data\ExifTagType.cs" />
+    <Compile Include="FileTypes\FileType.cs" />
+    <Compile Include="FileTypes\FileTypeBase\FileTypeCollection.cs" />
+    <Compile Include="FileTypes\FileTypeBase\FileTypeFlags.cs" />
+    <Compile Include="FileTypes\FileTypeBase\FileType`2.cs" />
+    <Compile Include="FileTypes\InternalTypes\GdiPlusFileType.cs" />
+    <Compile Include="FileTypes\InternalTypes\GifFileType.cs" />
+    <Compile Include="FileTypes\IFileTypeFactory.cs" />
+    <Compile Include="FileTypes\InternalTypes\InternalFileType.cs" />
+    <Compile Include="FileTypes\InternalTypes\PdnFileType.cs" />
+    <Compile Include="FileTypes\FileTypeBase\PdnFileTypes.cs" />
+    <Compile Include="FileTypes\InternalTypes\PngFileType.cs" />
+    <Compile Include="FileTypes\PropertyBasedFileType\PropertyBasedFileType.cs" />
+    <Compile Include="FileTypes\PropertyBasedFileType\PropertyBasedSaveConfigToken.cs" />
+    <Compile Include="FileTypes\PropertyBasedFileType\PropertyBasedSaveConfigWidget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileTypes\PropertyBasedFileType\SaveConfigToken.cs" />
+    <Compile Include="FileTypes\FileTypeBase\SaveConfigWidget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileTypes\FileTypeBase\SaveConfigWidget`2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileTypes\InternalTypes\TgaFileType.cs" />
+    <Compile Include="Layers\BitmapLayer\BitmapLayer.cs" />
+    <Compile Include="Layers\Layer.cs" />
+    <Compile Include="Layers\LayerList.cs" />
+    <Compile Include="Data\MetaData.cs" />
+    <Compile Include="Data\NoSaveConfigWidget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Quantize\OctreeQuantizer.cs" />
+    <Compile Include="Data\Quantize\PaletteTable.cs" />
+    <Compile Include="Data\Quantize\Quantizer.cs" />
+    <Compile Include="Data\UserBlendOp.cs" />
+    <Compile Include="Data\UserBlendOps.cs" />
+    <Compile Include="Data\UserBlendOps.Generated.cs" />
+    <Compile Include="DocumentWorkspace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Effects\BackgroundEffectRenderer.cs" />
+    <Compile Include="Effects\IEffects\EffectConfigDialog2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Effects\Internal effects\ColorFillEffect.cs" />
+    <Compile Include="Effects\Effect.cs" />
+    <Compile Include="Effects\IEffects\EffectCategoryAttribute.cs" />
+    <Compile Include="Effects\IEffects\EffectConfigToken.cs" />
+    <Compile Include="Effects\IEffects\EffectEnvironmentParameters.cs" />
+    <Compile Include="Effects\IEffects\EffectFlags.cs" />
+    <Compile Include="Effects\IEffects\EffectsCollection.cs" />
+    <Compile Include="Effects\Internal effects\ConvolutionFilterEffect.cs" />
+    <Compile Include="Effects\Internal effects\TempRotateZoomEffect.cs" />
+    <Compile Include="Effects\Internal effects\PanControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Effects\Internal effects\RollControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Effects\Internal effects\AddNoiseEffect.cs" />
+    <Compile Include="Effects\Internal effects\AutoLevelEffect.cs" />
+    <Compile Include="Effects\Internal effects\BrightnessAndContrastAdjustment.cs" />
+    <Compile Include="Effects\Internal effects\BulgeEffect.cs" />
+    <Compile Include="Effects\Internal effects\ColorDifferenceEffect.cs" />
+    <Compile Include="Effects\Internal effects\DesaturateEffect.cs" />
+    <Compile Include="Effects\Internal effects\EdgeDetectEffect.cs" />
+    <Compile Include="Effects\Internal effects\EmbossEffect.cs" />
+    <Compile Include="Effects\Internal effects\FragmentEffect.cs" />
+    <Compile Include="Effects\Internal effects\FrostedGlassEffect.cs" />
+    <Compile Include="Effects\Internal effects\GaussianBlurEffect.cs" />
+    <Compile Include="Effects\Internal effects\GlowEffect.cs" />
+    <Compile Include="Effects\Internal effects\HueAndSaturationAdjustment.cs" />
+    <Compile Include="Effects\Internal effects\InkSketchEffect.cs" />
+    <Compile Include="Effects\Internal effects\InvertColorsEffect.cs" />
+    <Compile Include="Effects\Internal effects\JuliaFractalEffect.cs" />
+    <Compile Include="Effects\Internal effects\LocalHistogramEffect.cs" />
+    <Compile Include="Effects\Internal effects\MandelbrotFractalEffect.cs" />
+    <Compile Include="Effects\Internal effects\MedianEffect.cs" />
+    <Compile Include="Effects\Internal effects\MotionBlurEffect.cs" />
+    <Compile Include="Effects\Internal effects\OilPaintingEffect.cs" />
+    <Compile Include="Effects\Internal effects\OutlineEffect.cs" />
+    <Compile Include="Effects\Internal effects\PencilSketchEffect.cs" />
+    <Compile Include="Effects\Internal effects\PixelateEffect.cs" />
+    <Compile Include="Effects\Internal effects\PosterizeAdjustment.cs" />
+    <Compile Include="Effects\Internal effects\RadialBlurEffect.cs" />
+    <Compile Include="Effects\Internal effects\RedEyeRemoveEffect.cs" />
+    <Compile Include="Effects\Internal effects\ReduceNoiseEffect.cs" />
+    <Compile Include="Effects\Internal effects\ReliefEffect.cs" />
+    <Compile Include="Effects\Internal effects\SepiaEffect.cs" />
+    <Compile Include="Effects\Internal effects\SharpenEffect.cs" />
+    <Compile Include="Effects\Internal effects\SoftenPortraitEffect.cs" />
+    <Compile Include="Effects\Internal effects\TileEffect.cs" />
+    <Compile Include="Effects\Internal effects\TwistEffect.cs" />
+    <Compile Include="Effects\Internal effects\UnfocusEffect.cs" />
+    <Compile Include="Effects\Internal effects\WarpEdgeBehavior.cs" />
+    <Compile Include="Effects\Internal effects\WarpEffectBase.cs" />
+    <Compile Include="Effects\Internal effects\ZoomBlurEffect.cs" />
+    <Compile Include="Effects\IEffectTypeArray.cs" />
+    <Compile Include="Effects\Internal effects\PolarInversionEffect.cs" />
+    <Compile Include="Effects\SciEffect.cs" />
+    <Compile Include="Effects\SubmenuNames.cs" />
+    <Compile Include="Effects\Internal effects\PerlinNoise2D.cs" />
+    <Compile Include="Graph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graph.Designer.cs">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\Layer Actions\AddNewBlankLayerAction.cs" />
+    <Compile Include="Actions\Image Actions\CropToSelectionAction.cs" />
+    <Compile Include="Actions\Layer Actions\DeleteLayerAction.cs" />
+    <Compile Include="Actions\Edit Actions\DeselectAction.cs" />
+    <Compile Include="Actions\Layer Actions\DuplicateLayerAction.cs" />
+    <Compile Include="Actions\Edit Actions\EraseSelectionAction.cs" />
+    <Compile Include="Actions\Edit Actions\FillSelectionActionn.cs" />
+    <Compile Include="Actions\Image Actions\FlattenAction.cs" />
+    <Compile Include="Actions\Edit Actions\InvertSelectionAction.cs" />
+    <Compile Include="Actions\Layer Actions\MergeLayerDownAction.cs" />
+    <Compile Include="Actions\Edit Actions\SelectAllAction.cs" />
+    <Compile Include="History\HistoryMementos\BitmapHistoryMemento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="History\HistoryMementos\CompoundHistoryMemento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="History\HistoryMementos\DeleteLayerHistoryMemento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="History\HistoryMementos\LayerPropertyHistoryMemento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="History\HistoryMementos\MetaDataHistoryMemento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="History\HistoryMementos\NewLayerHistoryMemento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="History\HistoryMementos\NullHistoryMemento.cs" />
+    <Compile Include="History\HistoryMementos\ReplaceDocumentHistoryMemento.cs" />
+    <Compile Include="History\HistoryMementos\SelectionHistoryMemento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="History\HistoryMementos\ToolHistoryMemento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PaintForms\AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actions\Image Actions\CanvasSize\AnchorChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemLayer\EnumsAndVarious\AnchorEdge.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\BrushInfo.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\BrushPreviewRenderer.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\BrushType.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\CallbackWithProgressDialog.cs" />
+    <Compile Include="Tools\SimpleFloodFill.cs" />
+    <Compile Include="VectorAndNubControls\CanvasControl.cs" />
+    <Compile Include="Actions\Image Actions\CanvasSize\CanvasSizeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\ChooseToolDefaultsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorDisplayWidget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorEventArgs.cs" />
+    <Compile Include="PaintForms\ColorPickers\ColorEventHandler.cs" />
+    <Compile Include="PaintForms\ColorPickers\ColorPickerClickBehavior.cs" />
+    <Compile Include="PaintForms\ColorPickers\ColorRectangleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorWheel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menus\CommonActionsStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Menus\DocumentStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="History\HistoryMementos\ExecutedHistoryMementoEventArgs.cs" />
+    <Compile Include="History\HistoryMementos\ExecutedHistoryMementoEventHandler.cs" />
+    <Compile Include="History\HistoryMementos\ExecutingHistoryMementoEventArgs.cs" />
+    <Compile Include="History\HistoryMementos\ExecutingHistoryMementoEventHandler.cs" />
+    <Compile Include="FileTypes\FileTypes.cs" />
+    <Compile Include="PaintForms\FloatingToolForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemLayer\EnumsAndVarious\FloodMode.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\FontInfo.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\GradientInfo.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\GradientType.cs" />
+    <Compile Include="PaintForms\DefaultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaintForms\DefaultForm.Designer.cs">
+      <DependentUpon>DefaultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaintForms\HistoryForm\HistoryControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="History\HistoryMementos\HistoryMemento.cs" />
+    <Compile Include="History\HistoryMementos\HistoryMementoData.cs" />
+    <Compile Include="History\HistoryStack.cs" />
+    <Compile Include="Interfaces\IAlphaBlendingConfig.cs" />
+    <Compile Include="Interfaces\IAntiAliasingConfig.cs" />
+    <Compile Include="Interfaces\IBrushConfig.cs" />
+    <Compile Include="Interfaces\IColorPickerConfig.cs" />
+    <Compile Include="PaintForms\ColorPickers\IconBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IDocumentList.cs" />
+    <Compile Include="Interfaces\IFloodModeConfig.cs" />
+    <Compile Include="Interfaces\IGradientConfig.cs" />
+    <Compile Include="History\IHistoryWorkspace.cs" />
+    <Compile Include="Interfaces\IPenConfig.cs" />
+    <Compile Include="Interfaces\IResamplingConfig.cs" />
+    <Compile Include="Interfaces\ISelectionCombineModeConfig.cs" />
+    <Compile Include="Interfaces\ISelectionDrawModeConfig.cs" />
+    <Compile Include="Interfaces\IShapeTypeConfig.cs" />
+    <Compile Include="Interfaces\IStatusBarProgress.cs" />
+    <Compile Include="Interfaces\ITextConfig.cs" />
+    <Compile Include="Interfaces\IToleranceConfig.cs" />
+    <Compile Include="Interfaces\IToolChooser.cs" />
+    <Compile Include="PaintForms\LayerForm\LayerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\LayerForm\LayerElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewMenu\MostRecentFile.cs" />
+    <Compile Include="NewMenu\MostRecentFiles.cs" />
+    <Compile Include="VectorAndNubControls\MoveNubRenderer.cs" />
+    <Compile Include="Actions\File Actions\NewFileDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\PaletteCollection.cs" />
+    <Compile Include="Menus\PdnStatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Menus\PdnToolBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Updates\PdnVersionInfo.cs" />
+    <Compile Include="Updates\PdnVersionManifest.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\PenInfo.cs" />
+    <Compile Include="PaintForms\ProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\PushNullToolMode.cs" />
+    <Compile Include="Actions\Image Actions\ResizeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VectorAndNubControls\RotateNubRenderer.cs" />
+    <Compile Include="PaintForms\SaveConfigDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\SavePaletteDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemLayer\EnumsAndVarious\SaveProgressDialog.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\SelectionDrawMode.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\SelectionDrawModeInfo.cs" />
+    <Compile Include="VectorAndNubControls\SelectionRenderer.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\SettingNames.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\ShapeDrawType.cs" />
+    <Compile Include="PaintForms\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actions\Edit Actions\SurfaceForClipboard.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\TextAlignment.cs" />
+    <Compile Include="Menus\ToleranceSliderControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PaintForms\TransferProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actions\File Actions\UnsavedChangesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\ViewConfigStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\WhichUserColor.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\WorkspaceWidgets.cs" />
+    <Compile Include="Actions\View Actions\ZoomBasis.cs" />
+    <Compile Include="NewMenu\AdjustmentsMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Menus\CheckForUpdatesMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewMenu\EffectMenuBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewMenu\EffectsMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Menus\HelpMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewMenu\ViewMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewMenu\WindowMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ColorPickers\ColorsFormControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\HistoryForm\HistoryFormControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\LayerForm\LayerFormControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ToolsForm\ToolsFormControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintToolBars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaintToolBars.Designer.cs">
+      <DependentUpon>PaintToolBars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PDNResources\InvariantStrings.cs" />
+    <Compile Include="PDNResources\PdnInfo.cs" />
+    <Compile Include="PDNResources\PdnResources.cs" />
+    <Compile Include="PDNResources\StartupTestType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="SystemLayer\StylusReader\IStylusReaderHooks.cs" />
+    <Compile Include="SystemLayer\StylusReader\StylusAsyncPlugin.cs" />
+    <Compile Include="SystemLayer\StylusReader\StylusReader.cs" />
+    <Compile Include="SystemLayer\ClassicFileDialog.cs" />
+    <Compile Include="SystemLayer\ClassicFileOpenDialog.cs" />
+    <Compile Include="SystemLayer\ClassicFileSaveDialog.cs" />
+    <Compile Include="SystemLayer\Clipboard.cs" />
+    <Compile Include="SystemLayer\CommonDialogs.cs" />
+    <Compile Include="SystemLayer\ExecutePrivilege.cs" />
+    <Compile Include="SystemLayer\ExecuteWaitType.cs" />
+    <Compile Include="SystemLayer\FileOverwriteAction.cs" />
+    <Compile Include="SystemLayer\FileSystem.cs" />
+    <Compile Include="SystemLayer\Fonts.cs" />
+    <Compile Include="SystemLayer\FontSmoothing.cs" />
+    <Compile Include="SystemLayer\FormEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SystemLayer\GpcWrapper\NativeConstants.cs" />
+    <Compile Include="SystemLayer\GpcWrapper\NativeMethods.cs" />
+    <Compile Include="SystemLayer\GpcWrapper\NativeStructs.cs" />
+    <Compile Include="SystemLayer\GpcWrapper\Polygon.cs" />
+    <Compile Include="SystemLayer\GpcWrapper\Vertex.cs" />
+    <Compile Include="SystemLayer\GpcWrapper\VertexList.cs" />
+    <Compile Include="SystemLayer\IFileDialog.cs" />
+    <Compile Include="SystemLayer\IFileDialogUICallbacks.cs" />
+    <Compile Include="SystemLayer\IFileOpenDialog.cs" />
+    <Compile Include="SystemLayer\IFileSaveDialog.cs" />
+    <Compile Include="SystemLayer\IFileTransferProgressEvents.cs" />
+    <Compile Include="SystemLayer\IInkHooks.cs" />
+    <Compile Include="SystemLayer\Ink.cs" />
+    <Compile Include="SystemLayer\IWiaInterface.cs" />
+    <Compile Include="SystemLayer\Memory.cs" />
+    <Compile Include="SystemLayer\MenuStripEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SystemLayer\NativeConstants.cs" />
+    <Compile Include="SystemLayer\NativeDelegates.cs" />
+    <Compile Include="SystemLayer\NativeErrors.cs" />
+    <Compile Include="SystemLayer\NativeInterfaces.cs" />
+    <Compile Include="SystemLayer\NativeMethods.cs" />
+    <Compile Include="SystemLayer\NativeStructs.cs" />
+    <Compile Include="SystemLayer\Network.cs" />
+    <Compile Include="SystemLayer\NullGraphics.cs" />
+    <Compile Include="SystemLayer\OS.cs" />
+    <Compile Include="SystemLayer\OSType.cs" />
+    <Compile Include="SystemLayer\PdnGraphics.cs" />
+    <Compile Include="SystemLayer\Processor.cs" />
+    <Compile Include="SystemLayer\ProcessorArchitecture.cs" />
+    <Compile Include="SystemLayer\ProcessorFeature.cs" />
+    <Compile Include="SystemLayer\PropertyItem2.cs" />
+    <Compile Include="SystemLayer\RealParentWndProcDelegate.cs" />
+    <Compile Include="SystemLayer\SafeNativeMethods.cs" />
+    <Compile Include="SystemLayer\ScanningAndPrinting.cs" />
+    <Compile Include="SystemLayer\ScanResult.cs" />
+    <Compile Include="SystemLayer\ScrollPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SystemLayer\Security.cs" />
+    <Compile Include="SystemLayer\SerializationFallbackBinder.cs" />
+    <Compile Include="SystemLayer\Settings.cs" />
+    <Compile Include="SystemLayer\Shell.cs" />
+    <Compile Include="SystemLayer\SingleInstaceManager.cs" />
+    <Compile Include="SystemLayer\ThreadBackground.cs" />
+    <Compile Include="SystemLayer\ThreadBackgroundFlags.cs" />
+    <Compile Include="SystemLayer\Timing.cs" />
+    <Compile Include="SystemLayer\ToolStripEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SystemLayer\Tracing.cs" />
+    <Compile Include="SystemLayer\UI.cs" />
+    <Compile Include="SystemLayer\UserSessions.cs" />
+    <Compile Include="SystemLayer\VirtualFolderName.cs" />
+    <Compile Include="SystemLayer\VistaFileDialog.cs" />
+    <Compile Include="SystemLayer\VistaFileOpenDialog.cs" />
+    <Compile Include="SystemLayer\VistaFileSaveDialog.cs" />
+    <Compile Include="SystemLayer\VisualStyleClass.cs" />
+    <Compile Include="SystemLayer\WaitHandleArray.cs" />
+    <Compile Include="SystemLayer\WiaInterfaceInProc.cs" />
+    <Compile Include="SystemLayer\WiaInterfaceOutOfProc.cs" />
+    <Compile Include="Tools\InternalTools\CloneStampTool.cs" />
+    <Compile Include="Tools\InternalTools\ColorPickerTool.cs" />
+    <Compile Include="Tools\InternalTools\EllipseSelectTool.cs" />
+    <Compile Include="Tools\InternalTools\EllipseTool.cs" />
+    <Compile Include="Tools\InternalTools\EraserTool.cs" />
+    <Compile Include="Tools\FloodToolBase.cs" />
+    <Compile Include="Tools\InternalTools\FreeformShapeTool.cs" />
+    <Compile Include="Tools\InternalTools\GradientTool.cs" />
+    <Compile Include="Tools\InternalTools\LassoSelectTool.cs" />
+    <Compile Include="Tools\InternalTools\LineProfileTool.cs" />
+    <Compile Include="Tools\InternalTools\LineSelectTool.cs" />
+    <Compile Include="Tools\InternalTools\LineTool.cs" />
+    <Compile Include="Tools\InternalTools\MagicWandTool.cs" />
+    <Compile Include="Tools\InternalTools\MoveSelectionTool.cs" />
+    <Compile Include="Tools\InternalTools\MoveTool.cs" />
+    <Compile Include="Tools\InternalTools\MoveToolBase.cs" />
+    <Compile Include="Tools\InternalTools\PaintBrushTool.cs" />
+    <Compile Include="Tools\InternalTools\PaintBucketTool.cs" />
+    <Compile Include="Tools\InternalTools\PanTool.cs" />
+    <Compile Include="Tools\InternalTools\PencilTool.cs" />
+    <Compile Include="Tools\InternalTools\RecoloringTool.cs" />
+    <Compile Include="Tools\InternalTools\RectangleSelectTool.cs" />
+    <Compile Include="Tools\InternalTools\RectangleTool.cs" />
+    <Compile Include="Tools\InternalTools\RoundedRectangleTool.cs" />
+    <Compile Include="Tools\InternalTools\SelectionTool.cs" />
+    <Compile Include="Tools\InternalTools\ShapeTool.cs" />
+    <Compile Include="Tools\InternalTools\TextTool.cs" />
+    <Compile Include="Tools\Tool.cs" />
+    <Compile Include="SystemLayer\EnumsAndVarious\ToolBarConfigItems.cs" />
+    <Compile Include="Tools\ToolChooserStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\ToolClickedEventArgs.cs" />
+    <Compile Include="Tools\ToolClickedEventHandler.cs" />
+    <Compile Include="Tools\ToolConfigStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\ToolInfo.cs" />
+    <Compile Include="PaintForms\ToolsForm\ToolsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaintForms\ToolsForm\ToolsFormX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\InternalTools\ZoomTool.cs" />
+    <Compile Include="Updates\AbortedState.cs" />
+    <Compile Include="Updates\CheckingState.cs" />
+    <Compile Include="Updates\DoneState.cs" />
+    <Compile Include="Updates\DownloadingState.cs" />
+    <Compile Include="Updates\ErrorState.cs" />
+    <Compile Include="Updates\ExtractingState.cs" />
+    <Compile Include="Updates\INewVersionInfo.cs" />
+    <Compile Include="Updates\InstallingState.cs" />
+    <Compile Include="Updates\MarqueeStyle.cs" />
+    <Compile Include="Updates\PrivateInput.cs" />
+    <Compile Include="Updates\ReadyToCheckState.cs" />
+    <Compile Include="Updates\ReadyToInstallState.cs" />
+    <Compile Include="Updates\StartupState.cs" />
+    <Compile Include="Updates\UpdateAvailableState.cs" />
+    <Compile Include="Updates\UpdatesAction.cs" />
+    <Compile Include="Updates\UpdatesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Updates\UpdatesOptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Updates\UpdatesState.cs" />
+    <Compile Include="Updates\UpdatesStateMachine.cs" />
+    <Compile Include="WiaProxy32\WiaProxy32.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppWorkspace.resx">
+      <DependentUpon>AppWorkspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ColorPickers\BrowserSafeColorEditorUserControl.resx">
+      <DependentUpon>BrowserSafeColorEditorUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ColorPickers\ColorAreaAndSliderUserControl.resx">
+      <DependentUpon>ColorAreaAndSliderUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ColorPickers\ColorAreaUserControl.resx">
+      <DependentUpon>ColorAreaUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ColorPickers\ColorDisplayWidget.resx">
+      <DependentUpon>ColorDisplayWidget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ColorPickers\ColorSliderPanel.resx">
+      <DependentUpon>ColorSliderPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ColorPickers\ColorSliderUserControl.resx">
+      <DependentUpon>ColorSliderUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ColorPickers\WebColorEditorUserControl.resx">
+      <DependentUpon>WebColorEditorUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocumentWorkspace.resx">
+      <DependentUpon>DocumentWorkspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graph.resx">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ToolsForm\ToolsControl.resx">
+      <DependentUpon>ToolsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ToolsForm\ToolsFormControl.resx">
+      <DependentUpon>ToolsFormControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintToolBars.resx">
+      <DependentUpon>PaintToolBars.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <EmbeddedResource Include="PDNResources\Files\AboutCredits.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\GeneratedCodeWarning.h" />
+    <Content Include="Licence.txt" />
+    <EmbeddedResource Include="Layers\BitmapLayer\BitmapLayerPropertiesDialog2.resx">
+      <DependentUpon>BitmapLayerPropertiesDialog2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\IntensityLayer\IntensityLayerPropertiesDialog.resx">
+      <DependentUpon>IntensityLayerPropertiesDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\MDIChildForm.resx">
+      <DependentUpon>MDIChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\HistoryForm\HistoryFormControl.resx">
+      <DependentUpon>HistoryFormControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\LayerForm\LayerElement.resx">
+      <DependentUpon>LayerElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\ColorPickers\ColorsFormControl.resx">
+      <DependentUpon>ColorsFormControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaintForms\DefaultForm.resx">
+      <DependentUpon>DefaultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDNResources\Images\TransparentLogo.png" />
+    <EmbeddedResource Include="PDNResources\Images\RoundedEdgeUR.png" />
+    <EmbeddedResource Include="PDNResources\Images\RoundedEdgeUL.png" />
+    <EmbeddedResource Include="PDNResources\Images\RoundedEdgeLR.png" />
+    <EmbeddedResource Include="PDNResources\Images\RoundedEdgeLL.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ZoomToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ZoomBlurEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\WarningIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\UnsavedChangesDialog.SaveButton.png" />
+    <EmbeddedResource Include="PDNResources\Icons\UnsavedChangesDialog.CancelButton.png" />
+    <EmbeddedResource Include="PDNResources\Icons\UnfocusEffectIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\TwistEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\todo.png" />
+    <EmbeddedResource Include="PDNResources\Icons\TileEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\TextToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\TextAlignRightIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\TextAlignLeftIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\TextAlignCenterIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\SwatchIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\SwapIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\stock-tool-curves-16.png" />
+    <EmbeddedResource Include="PDNResources\Icons\SharpenEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ShapeOutlineIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ShapeInteriorIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ShapeBothIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\SettingsIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\SepiaEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\SelectionIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\SavePaletteIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\RoundedRectangleToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\RotateZoomIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ReliefEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\RedEyeRemoveEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\RectangleToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\RectangleSelectToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\RecoloringToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\RadialGradientIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\RadialBlurEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\Question.ico" />
+    <EmbeddedResource Include="PDNResources\Icons\PolarInversionEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\PlusButtonIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\PixelateEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\PencilToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\PanToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\PaintBucketIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\PaintBrushToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\OutlineEffectIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\OilPaintingEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MoveToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MoveSelectionToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MotionBlurEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MinusButtonIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuWindowToolsIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuWindowOpenMdiListIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuWindowLayersIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuWindowHistoryIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuWindowColorsIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuViewZoomToWindowIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuViewZoomToSelectionIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuViewZoomOutIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuViewZoomInIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuViewRulersIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuViewGridIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuViewActualSizeIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersMoveLayerUpIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersMoveLayerDownIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersMergeLayerDownIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersLayerPropertiesIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersImportFromFileIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersFlipVerticalIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersFlipHorizontalIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersDuplicateLayerIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersDeleteLayerIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuLayersAddNewLayerIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageRotate90CWIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageRotate90CCWIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageRotate270CWIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageRotate270CCWIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageRotate180CWIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageRotate180CCWIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageResizeIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageFlipVerticalIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageFlipHorizontalIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageFlattenIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageCropIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuImageCanvasSizeIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpTutorialsIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpSendFeedbackIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpPluginsIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpPdnWebsiteIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpLanguageIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpHelpTopicsIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpForumIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpDonateIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpCheckForUpdatesIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuHelpAboutIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuFileSaveIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuFileSaveAsIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuFilePrintIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuFileOpenIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuFileNewIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuFileCloseIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuFileAcquireFromScannerOrCameraIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuFileAcquireFromClipboardIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditUndoIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditSelectAllIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditRedoIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditPasteInToNewLayerIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditPasteInToNewImageIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditPasteIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditInvertSelectionIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditFillSelectionIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditEraseSelectionIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditDeselectIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditCutIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MenuEditCopyIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MedianEffectIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\MagicWandToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\LineToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\LinearReflectedGradientIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\LinearDiamondGradientIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\LinearClampedGradientIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\LevelsEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\LassoSelectToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\InvertColorsEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ImageSizeIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ImageFromDiskIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\HueAndSaturationAdjustment.png" />
+    <EmbeddedResource Include="PDNResources\Icons\HistoryRewindIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\HistoryFastForwardIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\GradientToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\GlowEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\FrostedGlassEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\FreeformShapeToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\FontUnderlineIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\FontItalicIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\FontBoldIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\EraserToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\EmbossEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\EllipseToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\EllipseSelectToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\EdgeDetectEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\DesaturateEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\CurvesEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\CursorXYIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ConicalGradientIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ColorPickerToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ColorPalettes.png" />
+    <EmbeddedResource Include="PDNResources\Icons\ColorAddOverlay.png" />
+    <EmbeddedResource Include="PDNResources\Icons\CloudsEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\CloneStampToolIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\CancelIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\BulgeEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\BrightnessAndContrastAdjustment.png" />
+    <EmbeddedResource Include="PDNResources\Icons\BlurEffect.png" />
+    <EmbeddedResource Include="PDNResources\Icons\BlendingOverwriteIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\BlendingEnabledIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\BlackAndWhiteIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\AutoLevel.png" />
+    <EmbeddedResource Include="PDNResources\Icons\AntiAliasingEnabledIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\AntiAliasingDisabledIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\AlphaChannelOnlyIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\AllColorChannelsIcon.png" />
+    <EmbeddedResource Include="PDNResources\Icons\AddNoiseEffect.png" />
+    <EmbeddedResource Include="PDNResources\Files\License.txt" />
+    <EmbeddedResource Include="PDNResources\Cursors\ZoomToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\ZoomOutToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\ZoomInToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\TextToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\ShapeToolCursorMouseDown.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\ShapeToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\RoundedRectangleToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\RectangleToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\RectangleSelectToolCursorMouseDown.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\RectangleSelectToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\RecoloringToolCursorPickColor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\RecoloringToolCursorAdjustColor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\RecoloringToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\PencilToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\PanToolCursorMouseDown.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\PanToolCursorInvalid.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\PanToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\PaintBucketToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\PaintBrushToolCursorMouseDown.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\PaintBrushToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\MoveToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\MoveSelectionToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\MagicWandToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\LineToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\LassoSelectToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\GenericToolCursorMouseDown.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\GenericToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\FreeformShapeToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\EraserToolCursorMouseDown.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\EraserToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\EllipseToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\EllipseSelectToolCursorMouseDown.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\EllipseSelectToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\ColorPickerToolCursor.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\CloneStampToolCursorSetSource.cur" />
+    <EmbeddedResource Include="PDNResources\Cursors\CloneStampToolCursor.cur" />
+    <EmbeddedResource Include="SystemLayer\PropertyItem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WIA">
+      <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WIALib">
+      <Guid>{95CEDD63-2E34-4B84-9FB3-F86AF1D4BF7A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>copy "C:\Documents and Settings\Administrator\Desktop\Microscopy Toolkit\autoMicromanager\MM_Net\bin\Debug\FreeImage.dll" "$(TargetDir)"
+copy "C:\Documents and Settings\Administrator\Desktop\Microscopy Toolkit\autoMicromanager\MM_Net\bin\Debug\FreeImageNET.dll" "$(TargetDir)"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

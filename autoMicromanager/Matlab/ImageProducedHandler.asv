@@ -1,0 +1,21 @@
+function ImageProducedHandler(sender, args)
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here 
+  disp('Image Received')
+  Images=args.Images;
+  PixelBright = double( Images(1).GetCenterPoint())
+  disp(PixelBright)
+  %You must allow Micromanager_net to update the controls,
+  %this is the command
+  Helpers.DoNetEvents();
+  %Convert image into array for use by mathematica
+  MMImageArray = Images(1).GetArrayDouble();
+
+  MLImageArray = double(MMImageArray);
+  %Now display the image as a array graph.  This is a slow operation and only show for a tutorial
+  image(MLImageArray);
+  colormap(gray);
+  figure(gcf);
+  
+end
+

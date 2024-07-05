@@ -1,0 +1,2 @@
+In order to compile the program you must download the source.  Open MicroManager.sln using Visual Studio C# (http://msdn.microsoft.com/en-us/vcsharp/default.aspx), 
+or Sharpdevelop(http://www.icsharpcode.net/OpenSource/SD/), and rebuild the whole setup, it may be necessary to rebuild a few times.  You must have the .NET framework 3.5.

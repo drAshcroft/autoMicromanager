@@ -1,0 +1,33 @@
+Needs["NETLink`"]
+(*Start the .Net Framework*)
+InstallNET[]
+(*This should point to the install folder of micromanager_net.  Right \
+now it is pointing at the default install directory*)
+LoadNETAssembly["C:\\Program Files\\Micromanager.NET\\"]
+(*Now start the NIEasycore to get to all the helper functions*)
+NIECore = NETNew["CoreDevices.NI_Controls.NIEasyCore"]
+(*Start the Micromanager Framework*)
+ECore = NIECore@StartEcore[""]
+(*Check what device libraries are available*)
+ECore@GetDeviceLibraries[]
+(*Check out all the adapters in the libraries*)
+ECore@GetAllDeviceAdapters[]
+(*You can start the devices by hand, but it is easier to just use the 
+Helpers class for most the devices, so we request a helpers object*)
+Helpers = NIECore@GetHelpers[]
+(*Create a default camera from the demo library*)
+Camera = Helpers@
+  CreateCameraDevice["camera", "DemoStreamingCamera", "DStreamCam"]
+(*Notify the core that this is the main camera of the system*)
+Camera@MakeOffical[]
+(*Adjust a device property, in this case the exposure.  The property \
+values must always be strings*)
+Camera@SetDeviceProperty["Exposure", "100"]
+(*We acquire one image while indicating that micromanager should not \
+display the image. (There is no viewer attached)*)
+MMImage = Camera@SnapOneFrame[False]
+(*Convert image into array for use by mathematica*)
+MMImageArray = MMImage@GetArrayInt16[]
+(*Now display the image as a array graph.  This is a slow operation \
+and only show for a tutorial*)
+ListDensityPlot[MMImageArray]

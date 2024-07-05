@@ -1,0 +1,3 @@
+In the labview 8.0 it is common for Labview to be unable to connect to autoMicromanager.  
+To overcome this problem please read the Tutorial in the supplimental section: Adding AutoMicromanager 
+tools to the Controls Menu manually

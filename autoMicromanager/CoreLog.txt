@@ -1,0 +1,41 @@
+LOG(6544, 6580:): -------->>
+LOG(6544, 6580:): Core session started on Tue Jun  9 2009 14:24:54.178000 by admin on bf3812
+LOG(6544, 6580:): Debug logging disabled
+LOG(6544, 6580:): Debug logging enabled
+LOG(6544, 7956:): Device DXYStage loaded from DemoCamera and labeled as xyStage
+LOG(6544, 7956:): Device xyStage set as xyStage.
+LOG(6544, 7956:): Device xyStage initialized.
+LOG(6544, 7956:): XYStage device set to xyStage
+LOG(6544, 7956:): Device DStreamCam loaded from DemoStreamingCamera and labeled as camera
+LOG(6544, 7956:): Device camera set as camera.
+LOG(6544, 7956:): Device camera initialized.
+LOG(6544, 7956:): Camera device set to camera
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:24:55.100000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:24:59.303000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:00.741000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:01.006000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:01.256000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:01.553000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:01.834000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:02.100000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:02.428000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:02.694000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:02.944000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:03.194000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:03.475000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:03.756000
+DBG(6544, 7956:) Exposure set to 18.324607.2 ms
+DBG(6544, 7956:) Image acquired at Tue Jun  9 2009 14:25:04.053000

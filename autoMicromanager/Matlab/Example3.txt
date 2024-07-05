@@ -1,0 +1,65 @@
+try
+  NET.addAssembly('C:\Program Files\Micromanager.NET\Micromanager_net.dll')
+catch e
+  e.message
+  if(isa(e, 'NET.NetException'))
+    e.ExceptionObject
+  end
+end
+
+import CoreDevices.*
+import CoreDevices.NI_Controls.*
+
+NIEcore = CoreDevices.NI_Controls.NIEasyCore()
+
+%Start the Micromanager Framework
+ECore = NIECore.StartECoreScriptGui("C:\\Program Files\\Micromanager.NET\\ConfigFiles\\Test4.xml")
+
+
+%Check what device libraries are available
+ECore.GetDeviceLibraries()
+
+%Check out all the adapters in the libraries
+ECore.GetAllDeviceAdapters()
+
+%You can start the devices by hand,but it is easier to just use the Helpers class for most the devices,so we request a helpers object
+Helpers = NIECore.GetHelpers()
+
+%Check what devices were loaded with the configuration file
+ECore.GetLoadedDeviceNames()
+
+%Grab the camera device from the configuation file.We will look at 
+%the loaded devices to get the name,you can also look at the 
+%configuration file,you can use this command to get access to any 
+%device from a stage to camera,as long as it has been installed with 
+%the configuration file
+Camera = ECore.GetDevice("camera")
+
+%Check what properties the camera has
+Camera.GetDevicePropertyNames()
+
+%Now that you have the camera devices,you can adjust its properties
+Camera.SetDeviceProperty("Exposure", "100")
+
+
+function ImageProducedHandler(Images)
+  disp('Image Received')
+  PixelBright = Images[0].GetCenterPoint()
+  disp(PixelBright)
+  %You must allow Micromanager_net to update the controls,
+  %this is the command
+  Helpers.DoNetEvents()
+end
+
+
+ImageProcessor = CoreDevices.NI_Controls.Image_Processor()
+ImageProcessor.RegisterAsImageProcessor(ECore, "Matlab", False)
+
+
+addlistener( ImageProcessor, 'ImageProduced', @ImageProducedHandler)
+
+%If you wish to test your event handler without having to run the 
+%program you can use the following two commands to trigger the event
+
+ImageN=Camera.SnapOneFrame(false)
+ImageProcessor.TestEvent(ImageN)

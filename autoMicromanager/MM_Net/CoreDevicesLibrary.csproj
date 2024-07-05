@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67D7AE96-CC09-4F47-B5FD-5CE949DEF27A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Micromanager_net</RootNamespace>
+    <AssemblyName>CoreDevicesLibrary</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RegisterForComInterop>true</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RegisterForComInterop>true</RegisterForComInterop>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AIMS.CodeEditor, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\AIMS.CodeEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="AIMS.Docking, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\AIMS.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="AIMS.ScriptControl, Version=1.0.2987.10531, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\AIMS.ScriptControl.dll</HintPath>
+    </Reference>
+    <Reference Include="AIMS.Scripting.ScriptRun, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\AIMS.Scripting.ScriptRun.dll</HintPath>
+    </Reference>
+    <Reference Include="AIMS.SyntaxDocument, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\AIMS.SyntaxDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="AIMS.SyntaxFiles, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\AIMS.SyntaxFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="AIMSScript, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\AIMSScript.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ACTIVESKINLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\Interop.ACTIVESKINLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.stdole, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\Interop.stdole.dll</HintPath>
+    </Reference>
+    <Reference Include="ScriptEngine, Version=1.0.2987.10143, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\ScriptEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxFiles, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AimsScriptControl\SyntaxFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.2.3444.24927, Culture=neutral, PublicKeyToken=a262e3f77be44473, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AquisitionEngine.cs" />
+    <Compile Include="Channels\ChannelGroupDefinition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Channels\ChannelGroupDefinition.Designer.cs">
+      <DependentUpon>ChannelGroupDefinition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\ChannelSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Channels\ChannelSetup.Designer.cs">
+      <DependentUpon>ChannelSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\GroupScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Channels\GroupScript.Designer.cs">
+      <DependentUpon>GroupScript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Channels\StateCommand.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Channels\StateCommand.Designer.cs">
+      <DependentUpon>StateCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Camera.cs" />
+    <Compile Include="ChannelGroup.cs" />
+    <Compile Include="ChannelState.cs" />
+    <Compile Include="CoreImage.cs" />
+    <Compile Include="CoreWrap\ActionType.cs" />
+    <Compile Include="CoreWrap\CharVector.cs" />
+    <Compile Include="CoreWrap\cImage.cs" />
+    <Compile Include="CoreWrap\CMMCore.cs" />
+    <Compile Include="CoreWrap\CMMError.cs" />
+    <Compile Include="CoreWrap\Configuration.cs" />
+    <Compile Include="CoreWrap\DeviceNotification.cs" />
+    <Compile Include="CoreWrap\DeviceType.cs" />
+    <Compile Include="CoreWrap\IntVector.cs" />
+    <Compile Include="CoreWrap\LongVector.cs" />
+    <Compile Include="CoreWrap\Metadata.cs" />
+    <Compile Include="CoreWrap\MetadataArrayTag.cs" />
+    <Compile Include="CoreWrap\MetadataError.cs" />
+    <Compile Include="CoreWrap\MetadataIndexError.cs" />
+    <Compile Include="CoreWrap\MetadataKeyError.cs" />
+    <Compile Include="CoreWrap\MetadataSingleTag.cs" />
+    <Compile Include="CoreWrap\MetadataTag.cs" />
+    <Compile Include="CoreWrap\MMCoreCS_wrap.cs" />
+    <Compile Include="CoreWrap\MMCoreCS_wrapPINVOKE.cs" />
+    <Compile Include="CoreWrap\MMEventCallback.cs" />
+    <Compile Include="CoreWrap\pair_ss.cs" />
+    <Compile Include="CoreWrap\PortType.cs" />
+    <Compile Include="CoreWrap\PropertyBlock.cs" />
+    <Compile Include="CoreWrap\PropertyPair.cs" />
+    <Compile Include="CoreWrap\PropertySetting.cs" />
+    <Compile Include="CoreWrap\PropertyType.cs" />
+    <Compile Include="CoreWrap\StrMap.cs" />
+    <Compile Include="CoreWrap\StrVector.cs" />
+    <Compile Include="CoreWrap\SWIGTYPE_p_double.cs" />
+    <Compile Include="CoreWrap\SWIGTYPE_p_std__string.cs" />
+    <Compile Include="CoreWrap\SWIGTYPE_p_unsigned_char.cs" />
+    <Compile Include="CoreWrap\SWIGTYPE_p_unsigned_int.cs" />
+    <Compile Include="DeviceControls\ColorAreaAndSliderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorAreaAndSliderUserControl.Designer.cs">
+      <DependentUpon>ColorAreaAndSliderUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorAreaUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorAreaUserControl.Designer.cs">
+      <DependentUpon>ColorAreaUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorPicker.Designer.cs">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSlider.designer.cs">
+      <DependentUpon>ColorSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSliderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSliderPanel.Designer.cs">
+      <DependentUpon>ColorSliderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSliderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\ColorSliderUserControl.Designer.cs">
+      <DependentUpon>ColorSliderUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\Colors\ColorConverting.cs" />
+    <Compile Include="DeviceControls\Colors\HsbColor.cs" />
+    <Compile Include="DeviceControls\Colors\HslColor.cs" />
+    <Compile Include="DeviceControls\Colors\RgbColor.cs" />
+    <Compile Include="DeviceControls\DoubleSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\DoubleSlider.designer.cs">
+      <DependentUpon>DoubleSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\FocusSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\FocusSlider.Designer.cs">
+      <DependentUpon>FocusSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\GlassButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\LUTGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\LUTGraph.Designer.cs">
+      <DependentUpon>LUTGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceControls\SlideAndTextl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\SlideAndTextl.Designer.cs">
+      <DependentUpon>SlideAndTextl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\MMEmptyGuiDevice.cs" />
+    <Compile Include="EasyCore.cs" />
+    <Compile Include="Devices\FilterWheel.cs" />
+    <Compile Include="Devices\FunctionGenerator.cs" />
+    <Compile Include="Generals\ColorConversions.cs" />
+    <Compile Include="Generals\PseudoRandom.cs" />
+    <Compile Include="Generals\Win32Support.cs" />
+    <Compile Include="Interfaces\GUIDeviceControl.cs" />
+    <Compile Include="Interfaces\IComCMMCore.cs" />
+    <Compile Include="Interfaces\IPictureView.cs" />
+    <Compile Include="Interfaces\IPropertyList.cs" />
+    <Compile Include="Interfaces\ISubMDI.cs" />
+    <Compile Include="Devices\MMDeviceBase.cs" />
+    <Compile Include="NI Controls\NIEasyCore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NI Controls\NIEasyCore.Designer.cs">
+      <DependentUpon>NIEasyCore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NI Controls\PictureBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NI Controls\PictureBoard.Designer.cs">
+      <DependentUpon>PictureBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\NormalCamera.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyInfo.cs" />
+    <Compile Include="DeviceControls\PropertyList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceControls\PropertyList.Designer.cs">
+      <DependentUpon>PropertyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\ScanningConfocalCamera.cs" />
+    <Compile Include="Devices\StateDevice.cs" />
+    <Compile Include="StopWatch.cs" />
+    <Compile Include="Devices\XYStage.cs" />
+    <Compile Include="Devices\ZStage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FreeImage\Wrapper\FreeImage.NET\cs\Library\FreeImageLibrary.csproj">
+      <Project>{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}</Project>
+      <Name>FreeImageLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Channels\ChannelGroupDefinition.resx">
+      <DependentUpon>ChannelGroupDefinition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Channels\ChannelSetup.resx">
+      <DependentUpon>ChannelSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Channels\GroupScript.resx">
+      <DependentUpon>GroupScript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Channels\StateCommand.resx">
+      <DependentUpon>StateCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorAreaAndSliderUserControl.resx">
+      <DependentUpon>ColorAreaAndSliderUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorAreaUserControl.resx">
+      <DependentUpon>ColorAreaUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorPicker.resx">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorSlider.resx">
+      <DependentUpon>ColorSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorSliderPanel.resx">
+      <DependentUpon>ColorSliderPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\ColorSliderUserControl.resx">
+      <DependentUpon>ColorSliderUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\DoubleSlider.resx">
+      <DependentUpon>DoubleSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\FocusSlider.resx">
+      <DependentUpon>FocusSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\LUTGraph.resx">
+      <DependentUpon>LUTGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\SlideAndTextl.resx">
+      <DependentUpon>SlideAndTextl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NI Controls\NIEasyCore.resx">
+      <DependentUpon>NIEasyCore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NI Controls\PictureBoard.resx">
+      <DependentUpon>PictureBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceControls\PropertyList.resx">
+      <DependentUpon>PropertyList.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)" "$(SolutionDir)bin\"
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

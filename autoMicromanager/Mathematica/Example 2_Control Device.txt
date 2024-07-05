@@ -1,0 +1,40 @@
+Needs["NETLink`"];
+(*Start the.Net Framework*)
+InstallNET[];
+(*This should point to the install folder of micromanager_net.Right \
+now it is pointing at the default install directory*)
+LoadNETAssembly["C:\\Program Files\\Micromanager.NET\\"]
+(*Now start the NIEasycore to get to all the helper functions*)
+NIECore = NETNew["CoreDevices.NI_Controls.NIEasyCore"];
+(*Start the Micromanager Framework*)
+ECore = NIECore@
+   StartECoreScriptGui[
+    "C:\\Program Files\\Micromanager.NET\\ConfigFiles\\Test4.xml"];
+(*Check what device libraries are available*)
+ECore@GetDeviceLibraries[]
+(*Check out all the adapters in the libraries*)
+ECore@GetAllDeviceAdapters[]
+(*You can start the devices by hand,but it is easier to just use the \
+Helpers class for most the devices,so we request a helpers object*)
+Helpers = NIECore@GetHelpers[];
+(*Check what devices were loaded with the configuration file*)
+ECore@GetLoadedDeviceNames[]
+(*Grab the camera device from the configuation file. We will look at \
+the loaded devices to get the name,  you can also look at the \
+configuration file*)
+Camera = ECore@GetDevice["camera"];
+(*Check what properties the camera had*)
+Camera@GetDevicePropertyNames[]
+(*Now that you have the camera devices, you can adjust its properties*)
+
+Camera@SetDeviceProperty["Exposure", "100"];
+Do[
+ (*Acquire and image, tell micromanager_net to send it to the view \
+surfae*)
+ MMImage = Camera@SnapOneFrame[True];
+ (*Check the brightness of the center spot*)
+ PixelBright = MMImage@GetCenterPoint[]
+   (*You must allow Micromanager_net to update the controls, 
+   this is the command*)
+   Helpers@DoNetEvents[];
+ , {i, 25}]

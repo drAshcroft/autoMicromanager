@@ -1,0 +1,7 @@
+# Unload all devices
+Property,Core,Initialize,0
+# Load devices
+Device,camera,DemoCamera,DCam
+Device,xyStage,DemoCamera,DXYStage
+# Equipment attributes
+# Pre-initialization properties

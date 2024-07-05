@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Devices>
+    <Image___Viewer LibraryName="" LibDeviceName="" DeviceType="CoreDevices.Devices.MMEmptyGuiDevice" GuiInfo="" />
+    <Joystick___Control LibraryName="" LibDeviceName="" DeviceType="CoreDevices.Devices.MMEmptyGuiDevice" GuiInfo="" />
+    <Image___Capture___and___Record___Tools LibraryName="" LibDeviceName="" DeviceType="CoreDevices.Devices.MMEmptyGuiDevice" GuiInfo="" />
+    <Corelog___Viewer LibraryName="" LibDeviceName="" DeviceType="CoreDevices.Devices.MMEmptyGuiDevice" GuiInfo="" />
+    <Scripting___Tools LibraryName="" LibDeviceName="" DeviceType="CoreDevices.Devices.MMEmptyGuiDevice" GuiInfo="" />
+    <camera LibraryName="DemoCamera" LibDeviceName="DCam" DeviceType="CameraDevice" Exposure="100.0000" Gain="0" GuiInfo="" />
+    <zstage LibraryName="DemoCamera" LibDeviceName="DStage" DeviceType="StageDevice" GuiInfo="" />
+    <xystage LibraryName="DemoCamera" LibDeviceName="DXYStage" DeviceType="XYStageDevice" Official="true" GuiInfo="" />
+  </Devices>
+</Root>

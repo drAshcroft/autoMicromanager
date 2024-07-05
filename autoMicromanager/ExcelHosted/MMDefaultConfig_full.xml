@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Devices>
+    <camera LibraryName="DemoStreamingCamera" LibDeviceName="DStreamCam" DeviceType="CameraDevice" Official="true" ActualInterval_ms="0.00" Binning="1" CCDTemperature="0.00" CameraID="V1.0" CameraName="Demo Streaming Camera" ColorMode="Grayscale" Description="Demo Streaming Camera Device Adapter" Exposure="100.00" Gain="0" Name="DStreamCam" Offset="0" PixelType="8bit" ReadoutTime="0.00" ScanMode="1" TransposeCorrection="0" TransposeMirrorX="0" TransposeMirrorY="0" TransposeXY="0" />
+    <xyStage LibraryName="DemoCamera" LibDeviceName="DXYStage" DeviceType="XYStageDevice" Official="true" Description="Demo XY stage driver" Name="DXYStage" />
+  </Devices>
+</Root>

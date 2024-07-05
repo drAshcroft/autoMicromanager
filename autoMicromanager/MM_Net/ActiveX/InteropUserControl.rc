@@ -1,0 +1,4 @@
+#define RT_MANIFEST 24
+1 RT_MANIFEST InteropUserControl.manifest
+101 BITMAP InteropUserControl.bmp
+102 BITMAP Dilbert.bmp

@@ -1,0 +1,49 @@
+Needs["NETLink`"];
+(*Start the.Net Framework*)
+InstallNET[];
+(*This should point to the install folder of micromanager_net.Right \
+now it is pointing at the default install directory*)
+LoadNETAssembly["C:\\Program Files\\Micromanager.NET\\"];
+(*Now start the NIEasycore to get to all the helper functions*)
+NIECore = NETNew["CoreDevices.NI_Controls.NIEasyCore"];
+(*Start the Micromanager Framework*)
+ECore = NIECore@
+   StartECoreScriptGui[
+    "C:\\Program Files\\Micromanager.NET\\ConfigFiles\\Test4.xml"];
+(*Check what device libraries are available*)
+ECore@GetDeviceLibraries[];
+(*Check out all the adapters in the libraries*)
+ECore@GetAllDeviceAdapters[];
+(*You can start the devices by hand,but it is easier to just use the \
+Helpers class for most the devices,so we request a helpers object*)
+Helpers = NIECore@GetHelpers[];
+(*Check what devices were loaded with the configuration file*)
+ECore@GetLoadedDeviceNames[];
+(*Grab the camera device from the configuation file.We will look at \
+the loaded devices to get the name,you can also look at the \
+configuration file,you can use this command to get access to any \
+device from a stage to camera,as long as it has been installed with \
+the configuration file*)
+Camera = ECore@GetDevice["camera"];
+(*Check what properties the camera had*)
+Camera@GetDevicePropertyNames[];
+(*Now that you have the camera devices,you can adjust its properties*)
+
+Camera@SetDeviceProperty["Exposure", "100"];
+ImageProducedHandler[Images_] := Module[{x = x0},
+  Print["Image Received"];
+  PixelBright = Images[0]@GetCenterPoint[];
+  Print[PixelBright];
+  (*You must allow Micromanager_net to update the controls,
+  this is the command*)
+  Helpers@DoNetEvents[];]
+ImageProcessor = NETNew["CoreDevices.NI_Controls.Image_Processor"]
+ImageProcessor@RegisterAsImageProcessor[ECore, "Mathematica", False]
+AddEventHandler[ImageProcessor@ImageProduced, ImageProducedHandler]
+(*If you wish to test your event handler without having to run the \
+program you can use the following two commands to trigger the event
+ImageN=Camera@SnapOneFrame[false]
+ImageProcessor@TestEvent[ImageN]
+*)
+(* To remove the NETLink module and restart, use
+UninstallNET[]*)

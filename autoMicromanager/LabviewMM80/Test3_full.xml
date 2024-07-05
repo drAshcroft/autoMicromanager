@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Devices>
+    <camera LibraryName="DemoCamera" LibDeviceName="DCam" DeviceType="CameraDevice" Exposure="100.0000" GuiInfo="" />
+    <xyStage LibraryName="DemoCamera" LibDeviceName="DXYStage" DeviceType="XYStageDevice" Official="true" GuiInfo="" />
+    <MoreRecordTools LibraryName="" LibDeviceName="" DeviceType="CoreDevices.Devices.MMEmptyGuiDevice" GuiInfo="" />
+    <CoreLog LibraryName="" LibDeviceName="" DeviceType="CoreDevices.Devices.MMEmptyGuiDevice" GuiInfo="" />
+    <StageJoystick LibraryName="" LibDeviceName="" DeviceType="CoreDevices.Devices.MMEmptyGuiDevice" GuiInfo="" />
+  </Devices>
+</Root>

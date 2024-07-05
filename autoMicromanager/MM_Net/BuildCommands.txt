@@ -1,0 +1,8 @@
+﻿copy "$(SolutionDir)SciImage\SciImage\src\FileTypes\FileTypes\bin\Debug\FileTypes.dll"      "$(TargetDir)FileTypes\"
+
+post build 
+copy "$(SolutionDir)SciImage\SciImage\SciImageWindow\bin\$(ConfigurationName)\" "$(TargetDir)"
+
+@echo.
+IF EXIST "$(DevEnvDir)..\..\SDK\v3.5\Bin\rc.exe" ("$(DevEnvDir)..\..\SDK\v3.5\Bin\rc.exe" /r "$(ProjectDir)InteropUserControl.rc") ELSE (IF EXIST "$(DevEnvDir)..\..\SDK\v2.0\Bin\rc.exe" ("$(DevEnvDir)..\..\SDK\v2.0\Bin\rc.exe"/r "$(ProjectDir)InteropUserControl.rc") ELSE (IF EXIST "$(DevEnvDir)..\Tools\Bin\rc.exe" ("$(DevEnvDir)..\Tools\Bin\rc.exe"/r "$(ProjectDir)InteropUserControl.rc") ELSE (IF EXIST "$(DevEnvDir)..\..\VC\Bin\rc.exe" ("$(DevEnvDir)..\..\VC\Bin\rc.exe"/r "$(ProjectDir)InteropUserControl.rc") ELSE (@Echo Unable to find rc.exe, using default manifest instead))))
+@echo.

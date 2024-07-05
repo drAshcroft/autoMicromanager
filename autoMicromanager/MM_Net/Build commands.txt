@@ -1,0 +1,7 @@
+﻿#copy "$(SolutionDir)SciImage\SciImage\SciImageWindow\bin\$(ConfigurationName)\" "$(TargetDir)"
+#copy "$(SolutionDir)SciImage\SciImage\SciImageWindow\bin\$(ConfigurationName)\FileTypes\" "$(TargetDir)FileTypes\"
+#copy "$(SolutionDir)SciImage\SciImage\SciImageWindow\bin\$(ConfigurationName)\Effects\" "$(TargetDir)Effects\"
+
+postbuild
+
+#copy "$(SolutionDir)SciImage\SciImage\SciImageWindow\bin\$(ConfigurationName)\" "$(TargetDir)"

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA156645-E764-4AE0-B97D-E10E6FD3134C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SciImagePlugin</RootNamespace>
+    <AssemblyName>SciImagePlugin</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FreeImageNET, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MM_Net\bin\Debug\FreeImageNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Micromanager_net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=daf566bf805be35c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MM_Net\bin\Debug\Micromanager_net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.2.3793.23461, Culture=neutral, PublicKeyToken=a262e3f77be44473, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MM_Net\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DockContentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentForm.Designer.cs">
+      <DependentUpon>DockContentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockingToolsBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockingToolsBar.Designer.cs">
+      <DependentUpon>DockingToolsBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NiToolBarHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NiToolBarHolder.Designer.cs">
+      <DependentUpon>NiToolBarHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NiViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NiViewer.Designer.cs">
+      <DependentUpon>NiViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View.Designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DockContentForm.resx">
+      <DependentUpon>DockContentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockingToolsBar.resx">
+      <DependentUpon>DockingToolsBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NiToolBarHolder.resx">
+      <DependentUpon>NiToolBarHolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NiViewer.resx">
+      <DependentUpon>NiViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.resx">
+      <DependentUpon>View.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SciImage\SciImage\SciImageWindow\SciImage.csproj">
+      <Project>{E5F741C5-E3BA-458E-9FC7-712210B2E4E3}</Project>
+      <Name>SciImage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)ICSharpCode.SharpZipLib.dll" "$(SolutionDir)..\MM_Net\bin\debug\"
+copy "$(TargetDir)Interop.WIA.dll" "$(SolutionDir)..\MM_Net\bin\debug\"
+copy "$(TargetDir)Microsoft.Ink.dll" "$(SolutionDir)..\MM_Net\bin\debug\"
+copy "$(TargetDir)SciImage.dll" "$(SolutionDir)..\MM_Net\bin\debug\"
+copy "$(TargetDir)SciImagePlugin.dll" "$(SolutionDir)..\MM_Net\bin\debug\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

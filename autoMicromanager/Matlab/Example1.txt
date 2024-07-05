@@ -1,0 +1,44 @@
+try
+  NET.addAssembly('C:\Program Files\Micromanager.NET\Micromanager_net.dll')
+catch e
+  e.message
+  if(isa(e, 'NET.NetException'))
+    e.ExceptionObject
+  end
+end
+
+import CoreDevices.*
+import CoreDevices.NI_Controls.*
+
+NIEcore = CoreDevices.NI_Controls.NIEasyCore()
+ECore = NIEcore.StartEcore("")
+
+
+ECore.GetDeviceLibraries()
+
+%Check out all the adapters in the libraries
+ECore.GetAllDeviceAdapters()
+
+%You can start the devices by hand, but it is easier to just use the 
+%Helpers class for most the devices, so we request a helpers object
+Helpers = NIECore.GetHelpers()
+
+
+%Create a default camera from the demo library
+Camera = Helpers.CreateCameraDevice("camera", "DemoStreamingCamera", "DStreamCam")
+
+%Notify the core that this is the main camera of the system
+Camera.MakeOffical()
+
+%Adjust a device property, in this case the exposure.  The property values must always be strings
+Camera.SetDeviceProperty("Exposure", "100")
+
+%We acquire one image while indicating that micromanager should not display the image. (There is no viewer attached)
+MMImage = Camera.SnapOneFrame(False)
+
+%Convert image into array for use by mathematica
+MMImageArray = MMImage.GetArrayInt16()
+
+MLImageArray = double(MMImageArray)
+%Now display the image as a array graph.  This is a slow operation and only show for a tutorial
+surf(MMImageArray)

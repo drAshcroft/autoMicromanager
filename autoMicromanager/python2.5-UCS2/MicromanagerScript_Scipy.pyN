@@ -1,0 +1,62 @@
+
+import System.Windows.Forms as WinForms
+import Micromanager_net as Micromanager
+import CoreDevices as CoreDevices
+from scipy import *
+from CoreDevices import CoreImage
+#from System.Drawing import Color, Size, Point
+import System
+
+
+class MicromanagerPy(Micromanager.Form1):
+    """A simple example of starting micromanager and then collecting images"""
+
+    def __init__(self):
+        self.InterceptImages = True 
+        self.DoImageProcessing += self.ImageProcess
+     
+
+        #this function allows you to do anything you want to the images.  Each time an image is aquired
+        #it is sent to this function and then the returned image is the image that will be displayed
+        #this allows you to save, process or whatever do whatevery you like with the image.
+        #cImages are always an array of images, to accomidate stacks or multi-D acquisition.  You should return an
+        #array of CoreImages of the same dimension as was shown.  Errors will show up in the console, or the the debug window.
+    def ImageProcess(self,cImages):
+        cImages[0]= self.ProcessImage(cImages[0])
+        return cImages  
+        
+    def Dispose(self):
+        WinForms.Form.Dispose(self)
+
+        #this is still unfortunately slow. The arrays that are used in .net and in scipy are different.
+        #I do not know enough python to make the conversions run faster, so this is a project that can be
+        #put off until later.
+    def ProcessImage(self,cImage):
+        ia=cImage.GetArrayInt()
+        ff=zeros( (cImage.Width,cImage.Height) )
+        for x in range(0,cImage.Width):
+          for y in range(0,cImage.Height):
+            ff[x,y]=float(ia[x,y])
+        t=array( ff )
+        f=abs(fft(t))
+        #f=transpose(t)
+        g=f.tolist()
+        #There is no equivelent to the array used in scipy so we convert the lines to lists and then
+        #to an image.
+        CoreImage.CreateBuildUpImagePy(cImage.Height,cImage.Width)
+        i=-1
+        for x in g:
+            i=i+1
+            CoreImage.BuildUpArrayLine(i,g[i])
+        c2= CoreImage.GetBuildUpImage()
+        return c2  
+
+def main():
+    app = MicromanagerPy()
+    WinForms.Application.Run(app)
+    app.Dispose()
+   
+
+if __name__ == '__main__':
+    main()
+

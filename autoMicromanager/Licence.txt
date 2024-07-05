@@ -1,0 +1,17 @@
+
+For all intents and purposes this project is under the GPL licence,  it is a bit more complicated than tha.
+
+
+My portions are all under the MIT license.  I find the GPL a little troublesome.
+
+Scripting is through s#.  It has not licensed, but enjoys links
+http://www.protsyk.com/scriptdotnet/wiki/index.php?title=Main_Page
+
+Statconn does not allow itself to be redistributed or their to be any charge for distribution.  You must download their software and install it if you 
+wish to make use of scilab or R scripting.
+
+Zedgraph is under the LGPL
+
+Micromanager is under the LGPL and a number of others.  
+
+I think I have everything covered.

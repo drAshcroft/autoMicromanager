@@ -1,0 +1,31 @@
+
+import System.Windows.Forms as WinForms
+import Micromanager_net as Micromanager
+from Micromanager_net import PythonHelpers as PyHelpers
+import CoreDevices as CoreDevices
+from CoreDevices import NI_Controls as NI_Controls
+from CoreDevices import CoreImage
+import System
+
+
+def main():
+    ECore = NI_Controls.NIEasyCore()
+    ECore.StartEcore('')
+    Helpers = ECore.GetHelpers()
+    camera = Helpers.CreateCameraDevice('camera','DemoStreamingCamera','DStreamCam')
+
+    Viewer = PyHelpers.PythonViewer()
+    Viewer.Show()
+    PictureBoard = Viewer.ViewSurface
+    for k in range(1,10):
+        image = camera.SnapOneFrame(False)
+        PictureBoard.SendImage(image)
+        Viewer.DotNetDoEvents()
+#here you can do whatever you like with the image.  See the labview tutorials to
+#see how to best manipulate the images and devices.        
+if __name__ == '__main__':
+    main()
+
+#Right now there is not a lot of gui controls for python in this project.
+#If there is python demand, then I will work to make all the components available
+#in an easy to use python format.
